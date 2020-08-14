@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Chromecast reciever</title>
+    <script type="text/javascript"
+            src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js">
+    </script>
 </head>
 <body>
-Play with me.
+<cast-media-player></cast-media-player>
+<script>
+    cast.framework.CastReceiverContext.getInstance().start();
+</script>
 </body>
 </html>
