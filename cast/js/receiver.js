@@ -5,4 +5,3 @@ castDebugLogger.loggerLevelByEvents = {
     'cast.framework.events.category.CORE': cast.framework.LoggerLevel.DEBUG,
     'cast.framework.events.EventType.MEDIA_STATUS': cast.framework.LoggerLevel.DEBUG
 }
-console.log(cast.framework.CastReceiverContext.getInstance().getApplicationData().sessionId);
