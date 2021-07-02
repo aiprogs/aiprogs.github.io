@@ -1,1 +1,2 @@
-[".well-known"]
+auto: true
+include: [".well-known"]
