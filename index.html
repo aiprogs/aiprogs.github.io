@@ -57,11 +57,15 @@
 <script>
 
     document.addEventListener('visibilitychange', function () {
+        browserMovedToBackground = window.document.visibilityState === 'hidden' || window.document.visibilityState === 'unloaded';
         if (window.history.length > 1) {
             window.history.go(-1); // go back to previous page
         } else {
             window.close();
         }
+    });
+    window.addEventListener("blur", function () {
+        browserMovedToBackground = true;
     });
 
     var options = {
