@@ -66,8 +66,8 @@
 
     var options = {
         iOS: {
-            intentUr: 'itms-apps://',
-            fallback: 'itms-apps://apps.apple.com/RU/app/id1451612172?ls=1&mt=8"'
+            intentUr: 'fb2450809445237686://',
+            fallback: 'https://apps.apple.com/RU/app/id1451612172?mt=8"'
         },
         android: {
             host: 'home',
@@ -81,14 +81,17 @@
     };
 
     var browserMovedToBackground = false;
+    var anchor = document.getElementById('applink');
 
     window.tryToOpenInMultiplePhases = function (urls) {
 
         browserMovedToBackground = false;
+        anchor.href = intentUrl;
 
         var currentIndex = 0;
         var redirectTime = new Date();
         window.location = urls[currentIndex++];
+        anchor.href = options.iOS.intentUr;
 
         var next = function () {
             if (urls.length > currentIndex) {
@@ -142,7 +145,6 @@
                 'component=' + encodeURIComponent(options.android.component) + ';' +
                 'S.browser_fallback_url=' + encodeURIComponent(options.android.fallback) + ';' +
                 'end';
-            var anchor = document.getElementById('applink');
             anchor.href = intentUrl;
             window.open(intentUrl, '_self');
         }
